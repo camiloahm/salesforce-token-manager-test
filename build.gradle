@@ -1,0 +1,38 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.2'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.salesforce.token'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+
+	maven {
+		name = "GitHubPackages"
+		url = uri("https://maven.pkg.github.com/target/token-manager-for-salesforce")
+		credentials {
+			username = 'camiloahm'
+			password = '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'
+		}
+	}
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+	// for reactive applications
+	implementation "com.tgt.crm:token-manager-for-salesforce-webflux:1.0.0"
+	// for non-reactive applications
+	implementation "com.tgt.crm:token-manager-for-salesforce-webmvc:1.0.0"
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

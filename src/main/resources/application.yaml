@@ -1,0 +1,19 @@
+salesforce:
+  host: https://ihgcrm--mktgcld.my.salesforce.com:443/services
+  username: ${SALESFORCE_USERNAME}
+  password: ${SALESFORCE_PASSWORD}
+  client-id: 3MVG98RqVesxRgQ4hQh6W4xtV4yOzCPXgzTBspKZ.cB2vR66xQnrDrRoPagj0.RIUnfpUTtTJFfyXL1Zyx5cM
+  client-secret: 5892374C5A289677892999D0F0B39AFE5CE5F636003026858A560AAB1BD7A0C9
+  auth-uri: /services/oauth2/token # optional
+  retry-backoff-delay: 1000 # optional, configures retry for auth token requests only
+  max-auth-token-retries: 3 # optional, configures retry for auth token requests only
+  retry-backoff-multiplier: 2 # optional, configures retry for auth token requests only, only used by MVC, see SalesforceConfig for more info
+  httpclient:
+    max-conn-per-route: 20 # optional
+    read-timeout: 30000 # optional, in milliseconds
+    connection-timeout: 60000 # optional, in milliseconds
+    mvc: # configs in this block only available for webmvc
+      max-pools: 50 # optional
+      connection-request-timeout: 30000 # optional, in milliseconds
+      retries: 3 # optional, MVC only, configures default # of retries for all requests except auth token
+      retry-interval: 2000 # optional, in milliseconds, configures default retry interval for all requests except auth token
