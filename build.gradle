@@ -15,8 +15,7 @@ repositories {
 		name = "GitHubPackages"
 		url = uri("https://maven.pkg.github.com/target/token-manager-for-salesforce")
 		credentials {
-			username = 'camiloahm'
-			password = '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'
+
 		}
 	}
 }
